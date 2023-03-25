@@ -1,26 +1,18 @@
 package com.app.springbootwebapplicationtesting;
 
-
-import com.app.springbootwebapplicationtesting.Controller.HomeController;
-import org.assertj.core.api.Assert;
+import com.app.springbootwebapplicationtesting.Controller.ProductController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.assertj.core.api.FactoryBasedNavigableListAssert.assertThat;
-
+import org.springframework.context.annotation.ComponentScan;
+import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
+@ComponentScan(basePackageClasses = ProductController.class)
 public class SmokeTest {
     @Autowired
-    private HomeController homeController;
-
-
+    private ProductController controller;
     @Test
-    public void contextLoads() throws Exception {
-        assertThat(homeController).isNotNull();
+    public void contextLoads() throws Exception{
+        assertThat(controller).isNotNull();
     }
-
-
-
-
 }
